@@ -1,15 +1,15 @@
 package com.example.rickmorty.ui;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.os.Bundle;
-import android.view.View;
-
 import com.example.rickmorty.R;
 import com.example.rickmorty.databinding.ActivityMainBinding;
-import com.example.rickmorty.ui.character.CharacterFragment;
+import com.example.rickmorty.ui.fragments.CharacterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new CharacterFragment()).commit();
+//        NavHostFragment navHostFragment =
+//                (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+//        NavController navController = navHostFragment.getNavController();
+//
+//        binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        View view = binding.getRoot();
+//        setContentView(view);
+
     }
 
 

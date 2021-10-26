@@ -7,7 +7,12 @@
 
     <fragment
         android:id="@+id/characterFragment"
-        android:name="com.example.rickmorty.ui.character.CharacterFragment"
+        android:name="com.example.rickmorty.ui.fragments.CharacterFragment"
         android:label="fragment_character"
         tools:layout="@layout/fragment_character" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.rickmorty.ui.fragments.detailsFragment.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 </navigation>

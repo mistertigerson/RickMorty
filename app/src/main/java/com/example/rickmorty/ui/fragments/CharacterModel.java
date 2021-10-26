@@ -1,4 +1,4 @@
-package com.example.rickmorty.ui.character;
+package com.example.rickmorty.ui.fragments;
 
 public class CharacterModel {
 

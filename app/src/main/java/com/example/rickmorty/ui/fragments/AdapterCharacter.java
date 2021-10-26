@@ -1,29 +1,26 @@
-package com.example.rickmorty.ui.character;
+package com.example.rickmorty.ui.fragments;
 
-import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.rickmorty.R;
 import com.example.rickmorty.databinding.CharacterListItemBinding;
-import com.example.rickmorty.databinding.FragmentCharacterBinding;
-import com.example.rickmorty.ui.data.models.MainResponse;
 import com.example.rickmorty.ui.data.models.Result;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Response;
-
 public class AdapterCharacter extends RecyclerView.Adapter<AdapterCharacter.ViewHolder> {
 
+    private OnItemClickListener onItemCLickListener;
+
+    public void onItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemCLickListener = onItemClickListener;
+
+    }
 
     private List<Result> list = new ArrayList<>();
 
@@ -66,6 +63,14 @@ public class AdapterCharacter extends RecyclerView.Adapter<AdapterCharacter.View
             Glide.with(binding.getRoot()).load(mainResponse.getImage()).centerCrop().into(binding.profileIv);
             binding.nameTv.setText(mainResponse.getName());
             binding.surnameTv.setText(mainResponse.getStatus());
+            itemView.setOnClickListener(v -> {
+                onItemCLickListener.onClick(mainResponse);
+            });
+
         }
+    }
+
+    public interface OnItemClickListener{
+        void onClick(Result model);
     }
 }
